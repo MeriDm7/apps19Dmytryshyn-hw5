@@ -143,7 +143,7 @@ public class AsIntStream implements IntStream {
         int i = 0;
         for (int el: lst) {
             arr[i] = el;
-            i ++;
+            i++;
         }
         return arr;
     }

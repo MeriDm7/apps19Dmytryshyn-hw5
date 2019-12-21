@@ -10,7 +10,7 @@ public class FlatMapIterator implements Iterator<Integer> {
     private Iterator<Integer> iter;
     private StreamIterator sIter;
 
-    public FlatMapIterator(Iterator<Integer> iter, IntToIntStreamFunction f){
+    public FlatMapIterator(Iterator<Integer> iter, IntToIntStreamFunction f) {
         this.iter = iter;
         this.f = f;
         this.sIter = new StreamIterator();
@@ -20,12 +20,13 @@ public class FlatMapIterator implements Iterator<Integer> {
         if (sIter.hasNext()) {
             return true;
         }
-        else{
-            if(!sIter.hasNext() && iter.hasNext()){
-                sIter=  new StreamIterator(f.applyAsIntStream(iter.next()).toArray());
+        else {
+            if (!sIter.hasNext() && iter.hasNext()) {
+                sIter=  new StreamIterator(f.applyAsIntStream(iter.next())
+                        .toArray());
                 return true;
             }
-            if(!sIter.hasNext() && !iter.hasNext()){
+            if (!sIter.hasNext() && !iter.hasNext()) {
                 return false;
             }
         }
