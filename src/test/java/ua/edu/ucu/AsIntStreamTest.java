@@ -22,6 +22,13 @@ public class AsIntStreamTest {
         assertEquals(expResult, result, 0.001);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testAverageError(){
+        int[] intArr = {};
+        intStream = AsIntStream.of(intArr);
+        double result = intStream.average();
+    }
+
     @Test
     public void testMax() {
         int[] intArr = {-1, 0, 1, 2, 3};
@@ -31,6 +38,13 @@ public class AsIntStreamTest {
         assertEquals(expResult, result);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testMaxError(){
+        int[] intArr = {};
+        intStream = AsIntStream.of(intArr);
+        double result = intStream.max();
+    }
+
     @Test
     public void testMin() {
         int[] intArr = {-1, 0, 1, 2, 3};
@@ -38,6 +52,13 @@ public class AsIntStreamTest {
         int expResult = -1;
         int result = intStream.min();
         assertEquals(expResult, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMinError(){
+        int[] intArr = {};
+        intStream = AsIntStream.of(intArr);
+        double result = intStream.min();
     }
 
     @Test
@@ -56,6 +77,13 @@ public class AsIntStreamTest {
         int expResult = 5;
         int result = intStream.sum();
         assertEquals(expResult, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSumError(){
+        int[] intArr = {};
+        intStream = AsIntStream.of(intArr);
+        double result = intStream.sum();
     }
 
     @Test

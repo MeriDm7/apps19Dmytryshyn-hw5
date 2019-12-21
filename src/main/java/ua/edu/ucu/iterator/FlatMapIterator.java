@@ -22,7 +22,7 @@ public class FlatMapIterator implements Iterator<Integer> {
         }
         else {
             if (!sIter.hasNext() && iter.hasNext()) {
-                sIter=  new StreamIterator(f.applyAsIntStream(iter.next())
+                sIter =  new StreamIterator(f.applyAsIntStream(iter.next())
                         .toArray());
                 return true;
             }
