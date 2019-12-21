@@ -2,6 +2,7 @@ package ua.edu.ucu.iterator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class StreamIterator implements Iterator<Integer> {
 
@@ -33,6 +34,9 @@ public class StreamIterator implements Iterator<Integer> {
 
     @Override
     public Integer next() {
+        if (arr.size() == 0) {
+            throw new NoSuchElementException();
+        }
         Integer  res = arr.get(index);
         index += 1;
         return res;
